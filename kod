@@ -1,0 +1,19 @@
+import random
+poäng = 0
+def ställ_fråga(fråga, alternativ, rätt_svar):
+    print(fråga)
+    random.shuffle(alternativ)
+    for i, alt in enumerate(alternativ, start=1):
+        print(f"{i}. {alt}")
+    gissning = int(input("Skriv in numret på det rätta svaret: "))
+    if alternativ[gissning - 1] == rätt_svar:
+        print("Rätt svar!")
+        return 1
+    else:
+        print(f"Fel svar. Rätt svar är {rätt_svar}.")
+        return 0
+poäng = 0
+poäng += ställ_fråga("Vilken huvudstad har Sverige?", ["Stockholm", "Oslo", "Köpenhamn"], "Stockholm")
+poäng += ställ_fråga("Vilket år började andra världskriget?", ["1939", "1914", "1945"], "1939")
+poäng += ställ_fråga("Vad är 2 + 2?", ["3", "4", "5"], "4")
+print(f"Du fick totalt {poäng} poäng.")
